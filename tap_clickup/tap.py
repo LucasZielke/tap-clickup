@@ -7,6 +7,7 @@ from singer_sdk import typing as th
 
 import singer_sdk.helpers._typing
 
+
 def patched_is_boolean_type(property_schema: dict) -> bool | None:
     """Return true if the JSON Schema type is a boolean or None if detection fails.
 
