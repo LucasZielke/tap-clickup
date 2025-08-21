@@ -1,6 +1,6 @@
 """ClickUp tap class."""
 
-from typing import List
+from typing import List, Union
 
 from singer_sdk import Tap, Stream
 from singer_sdk import typing as th
@@ -25,7 +25,7 @@ from tap_clickup.streams import (
 )
 
 
-def patched_is_boolean_type(property_schema: dict) -> bool | None:
+def patched_is_boolean_type(property_schema: dict) -> Union[bool, None]:
     """Return true if the JSON Schema type is a boolean or None if detection fails.
 
     Without this patch, is_boolean_type() will return true for schemas that contain
