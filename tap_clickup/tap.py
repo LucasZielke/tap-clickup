@@ -1,13 +1,31 @@
 """ClickUp tap class."""
 
-from typing import List
+from typing import List, Union
 
 from singer_sdk import Tap, Stream
 from singer_sdk import typing as th
 
 import singer_sdk.helpers._typing
 
-def patched_is_boolean_type(property_schema: dict) -> bool | None:
+
+from tap_clickup.streams import (
+    TeamsStream,
+    SpacesStream,
+    FoldersStream,
+    FolderListsStream,
+    FolderlessListsStream,
+    TaskTemplatesStream,
+    GoalsStream,
+    TagsStream,
+    SharedHierarchyStream,
+    TasksStream,
+    FolderCustomFieldsStream,
+    FolderlessCustomFieldsStream,
+    TimeEntries,
+)
+
+
+def patched_is_boolean_type(property_schema: dict) -> Union[bool, None]:
     """Return true if the JSON Schema type is a boolean or None if detection fails.
 
     Without this patch, is_boolean_type() will return true for schemas that contain
@@ -40,22 +58,6 @@ def patched_is_boolean_type(property_schema: dict) -> bool | None:
 
 
 singer_sdk.helpers._typing.is_boolean_type = patched_is_boolean_type  # noqa: SLF001
-
-from tap_clickup.streams import (
-    TeamsStream,
-    SpacesStream,
-    FoldersStream,
-    FolderListsStream,
-    FolderlessListsStream,
-    TaskTemplatesStream,
-    GoalsStream,
-    TagsStream,
-    SharedHierarchyStream,
-    TasksStream,
-    FolderCustomFieldsStream,
-    FolderlessCustomFieldsStream,
-    TimeEntries,
-)
 
 STREAM_TYPES = [
     TeamsStream,

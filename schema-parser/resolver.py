@@ -1,4 +1,4 @@
-from singer_sdk._singerlib.schema import resolve_schema_references
+from singer_sdk.singerlib.schema import resolve_schema_references
 import json
 import os
 

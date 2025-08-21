@@ -1,4 +1,5 @@
 """Stream type classes for tap-clickup."""
+
 from pathlib import Path
 from typing import Optional, Any, Dict
 import requests
