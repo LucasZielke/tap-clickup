@@ -5,7 +5,7 @@ from pathlib import Path
 from datetime import datetime
 import time
 import requests
-from singer_sdk._singerlib.schema import resolve_schema_references
+from singer_sdk.singerlib.schema import resolve_schema_references
 from singer_sdk.helpers.jsonpath import extract_jsonpath
 from singer_sdk.streams import RESTStream
 from singer_sdk.exceptions import RetriableAPIError, FatalAPIError

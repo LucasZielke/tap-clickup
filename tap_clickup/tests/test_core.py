@@ -3,7 +3,7 @@
 import datetime
 import os
 
-from singer_sdk.testing import get_standard_tap_tests
+from singer_sdk.testing import get_tap_test_class
 
 from tap_clickup.tap import TapClickUp
 
@@ -16,6 +16,6 @@ SAMPLE_CONFIG = {
 # Run standard built-in tap tests from the SDK:
 def test_standard_tap_tests():
     """Run standard tap tests from the SDK."""
-    tests = get_standard_tap_tests(TapClickUp, config=SAMPLE_CONFIG)
+    tests = get_tap_test_class(TapClickUp, config=SAMPLE_CONFIG)
     for test in tests:
         test()
